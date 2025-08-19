@@ -129,71 +129,71 @@ def apply_poster_background():
         "images/miscellaneous/2025%20NBA%20Playoffs%20Players.jpg"
     )
 
-        st.markdown(
-            '''
-            <style>
-            :root{
-              --sidebar-w: 240px;
-              --strip-gap: 100px;
-              --strip-w: 400px;
-              --top-gap: 90px;
-              --bottom-gap: 140px;
-            }
+    st.markdown(
+        '''
+        <style>
+        :root{
+          --sidebar-w: 240px;
+            --strip-gap: 100px;
+            --strip-w: 400px;
+            --top-gap: 90px;
+            --bottom-gap: 140px;
+        }
 
-            .main .block-container { position: relative; z-index: 1; }
+        .main .block-container { position: relative; z-index: 1; }
 
-            [data-testid="stSidebar"]{
-              width: var(--sidebar-w) !important;
-              min-width: var(--sidebar-w) !important;
-              max-width: var(--sidebar-w) !important;
-            }
+        [data-testid="stSidebar"]{
+            width: var(--sidebar-w) !important;
+            min-width: var(--sidebar-w) !important;
+            max-width: var(--sidebar-w) !important;
+        }
 
-            .left-poster, .left-poster::after {
-              position: fixed;
-              pointer-events: none;
-              z-index: -1;
-            }
+        .left-poster, .left-poster::after {
+            position: fixed;
+            pointer-events: none;
+            z-index: -1;
+        }
 
-            .left-poster{
-              top: var(--top-gap);
-              left: calc(var(--sidebar-w) + var(--strip-gap));
-              width: var(--strip-w);
-              height: calc(100vh - var(--bottom-gap));
-              background-image: url('{POSTER_URL}');
-              background-size: auto 100%;
-              background-repeat: no-repeat;
-              background-position: center top;
-              border-radius: 16px;
-              box-shadow: 0 12px 28px rgba(0,0,0,.15);
-            }
+        .left-poster{
+            top: var(--top-gap);
+            left: calc(var(--sidebar-w) + var(--strip-gap));
+            width: var(--strip-w);
+            height: calc(100vh - var(--bottom-gap));
+            background-image: url('{POSTER_URL}');
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            background-position: center top;
+            border-radius: 16px;
+            box-shadow: 0 12px 28px rgba(0,0,0,.15);
+        }
 
-            .left-poster::after{
-              content:"";
-              inset:0;
-              border-radius:inherit;
-              background: linear-gradient(90deg, rgba(255,255,255,0) 58%, rgba(255,255,255,.96) 100%);
-            }
+        .left-poster::after{
+            content:"";
+            inset:0;
+            border-radius:inherit;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 58%, rgba(255,255,255,.96) 100%);
+        }
 
-            @media (max-width: 1200px){
-              .left-poster { display:none; }
-            }
-            </style>
-            <div class="left-poster"></div>
-            '''.replace("'{POSTER_URL}'", "'" + POSTER_URL + "'"),
-            unsafe_allow_html=True
-        )
+        @media (max-width: 1200px){
+            .left-poster { display:none; }
+        }
+        </style>
+        <div class="left-poster"></div>
+        '''.replace("'{POSTER_URL}'", "'" + POSTER_URL + "'"),
+        unsafe_allow_html=True
+    )
 
-        st.markdown(
-            '''
-            <style>
-            .main .block-container {
-                padding-left: calc(var(--sidebar-w) + var(--strip-gap) + var(--strip-w) - 120px) !important;
-                max-width: 100% !important;
-            }
-            </style>
-            ''',
-            unsafe_allow_html=True
-        )
+    st.markdown(
+        '''
+        <style>
+        .main .block-container {
+            padding-left: calc(var(--sidebar-w) + var(--strip-gap) + var(--strip-w) - 120px) !important;
+            max-width: 100% !important;
+        }
+        </style>
+        ''',
+        unsafe_allow_html=True
+    )
 
 
 def apply_cinematic_background():
@@ -203,36 +203,36 @@ def apply_cinematic_background():
         "images/miscellaneous/2025%20NBA%20Playoffs%20Players.jpg"
     )
 
-        st.markdown(
-            '''
-            <style>
-            #bg-photo{
-              position: fixed;
-              inset: 0;
-              background-image: url('{BG_URL}');
-              background-size: cover;
-              background-position: center top;
-              background-repeat: no-repeat;
-              opacity: 0.34;
-              filter: blur(0.6px) saturate(0.85) brightness(0.97);
-              z-index: -10;
-            }
+    st.markdown(
+        '''
+        <style>
+        #bg-photo{
+            position: fixed;
+            inset: 0;
+            background-image: url('{BG_URL}');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            opacity: 0.34;
+            filter: blur(0.6px) saturate(0.85) brightness(0.97);
+            z-index: -10;
+        }
 
-            #bg-fade{
-              position: fixed;
-              inset: 0;
-              pointer-events: none;
-              background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.78) 75%, #ffffff 100%),
-                          linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.03) 55%, rgba(255,255,255,0.08) 100%);
-              z-index: -9;
-            }
-            </style>
+        #bg-fade{
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.78) 75%, #ffffff 100%),
+                        linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.03) 55%, rgba(255,255,255,0.08) 100%);
+            z-index: -9;
+        }
+        </style>
 
-            <div id="bg-photo"></div>
-            <div id="bg-fade"></div>
-            '''.replace("'{BG_URL}'", "'" + BG_URL + "'"),
-            unsafe_allow_html=True
-        )
+        <div id="bg-photo"></div>
+        <div id="bg-fade"></div>
+        '''.replace("'{BG_URL}'", "'" + BG_URL + "'"),
+        unsafe_allow_html=True
+    )
 
 
 def apply_left_poster_strip():
@@ -241,45 +241,45 @@ def apply_left_poster_strip():
         "https://raw.githubusercontent.com/savannahvo/NBA-Playoffs-Game-Predictor/main/"
         "images/miscellaneous/2025%20NBA%20Playoffs%20Players.jpg"
     )
-        st.markdown(
-            '''
-            <style>
-            .stApp::before{
-              content:'';
-              position:fixed;
-              top:94px; left:230px;
-              width:190px; height:calc(100vh - 140px);
-              background-image:url('{POSTER_URL}');
-              background-size:contain;
-              background-repeat:no-repeat;
-              background-position:center top;
-              background-color:#ffffff;
-              filter:saturate(.95) brightness(.96);
-              box-shadow:0 12px 28px rgba(0,0,0,.15);
-              border-radius:16px;
-              z-index:0; pointer-events:none;
-            }
-            .stApp::after{
-              content:'';
-              position:fixed;
-              top:94px; left:230px;
-              width:190px; height:calc(100vh - 140px);
-              border-radius:16px;
-              background:linear-gradient(90deg, rgba(255,255,255,0) 58%, rgba(255,255,255,0.95) 100%);
-              z-index:0; pointer-events:none;
-            }
-            .main .block-container{ position:relative; z-index:1; }
+    st.markdown(
+        '''
+        <style>
+        .stApp::before{
+            content:'';
+            position:fixed;
+            top:94px; left:230px;
+            width:190px; height:calc(100vh - 140px);
+            background-image:url('{POSTER_URL}');
+            background-size:contain;
+            background-repeat:no-repeat;
+            background-position:center top;
+            background-color:#ffffff;
+            filter:saturate(.95) brightness(.96);
+            box-shadow:0 12px 28px rgba(0,0,0,.15);
+            border-radius:16px;
+            z-index:0; pointer-events:none;
+        }
+        .stApp::after{
+            content:'';
+            position:fixed;
+            top:94px; left:230px;
+            width:190px; height:calc(100vh - 140px);
+            border-radius:16px;
+            background:linear-gradient(90deg, rgba(255,255,255,0) 58%, rgba(255,255,255,0.95) 100%);
+            z-index:0; pointer-events:none;
+        }
+        .main .block-container{ position:relative; z-index:1; }
 
-            @media (max-width:1600px){
-              .stApp::before,.stApp::after{ left:220px; width:175px; }
-            }
-            @media (max-width:1200px){
-              .stApp::before,.stApp::after{ display:none; }
-            }
-            </style>
-            '''.replace("'{POSTER_URL}'", "'" + POSTER_URL + "'"),
-            unsafe_allow_html=True
-        )
+        @media (max-width:1600px){
+            .stApp::before,.stApp::after{ left:220px; width:175px; }
+        }
+        @media (max-width:1200px){
+            .stApp::before,.stApp::after{ display:none; }
+        }
+        </style>
+        '''.replace("'{POSTER_URL}'", "'" + POSTER_URL + "'"),
+        unsafe_allow_html=True
+    )
 
 
 # Color utility functions
