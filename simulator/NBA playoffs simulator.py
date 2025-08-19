@@ -186,7 +186,6 @@ def apply_poster_background():
         st.markdown(css.replace("POSTER_URL", POSTER_URL), unsafe_allow_html=True)
 
 
-
 def apply_cinematic_background():
     # Apply full-page cinematic background
     BG_URL = (
