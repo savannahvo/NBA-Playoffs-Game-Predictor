@@ -8,6 +8,17 @@ An interactive machine learning project that predicts the outcomes of NBA playof
 ## Overview
 This project was built to explore sports analytics and predictive modeling in the NBA. It uses regular season and playoff data to train machine learning models that estimate win probabilities for each game and display predictions in a playoff simulator.
 
+## Project Summary
+The goal of this project was to predict NBA playoff game outcomes using machine learning models trained on advanced team statistics, series context, and matchup history. Multiple models were tested (Logistic Regression, Random Forest, Gradient Boosting, and Support Vector Machine) and evaluated on accuracy, precision, recall, and F1 Score.
+
+All modeled performed reasonbly well, but none reached perfect accuracy given the unpredictability of playoff basketball. The best performing model was the **Support Vector Machine (SVM)**, which achieved:
+- Accuracy: 59%
+- F1 Score: 69%
+- Precision: 61%
+- Recall 79%
+
+While Random Forest and Gradient Boosting achieved slightly better raw accuracy (up to ~57%), they underperformed on F1 Score. Since playoff predicition requires balancing false positives and false negatives (e.g, not just predicting favorites but capturing potential upsets), **F1 Score was chosen as the primary selection metric.** This made SVM the most suitable model overall. 
+
 ## Features
 - Predicts outcomes of playoff games using SVM models
 - Incorporates [Dean Oliver's Four Factors](https://www.basketball-reference.com/about/factors.html) (eFG%, TOV%, ORB%, DRB%, FT/FGA)
@@ -15,7 +26,7 @@ This project was built to explore sports analytics and predictive modeling in th
 - Interactive Streamlit app that displays predictions alongside actual results
 
 ## Project Structure
-````bash
+```bash
 NBA-Playoffs-Game-Predictor/
 │── data/            # Datasets (Raw, processed, and final)
 │── images/          # Project images and logos
@@ -29,19 +40,31 @@ NBA-Playoffs-Game-Predictor/
 - [Kaggle NBA Dataset](https://www.kaggle.com/datasets/eoinamoore/historical-nba-data-and-player-box-scores/data)
 
 ## How to Run
+```bash
+# Clone the repository
+git clone https://github.com/savannahvo/NBA-Playoffs-Game-Predictor.git
+cd NBA-Playoffs-Game-Predictor
 
-## Project Summary
-The goal of this project was to predict NBA playoff game outcomes using machine learning models trained on advanced team statistics, series context, and matchup history. Multiple models were tested (Logistic Regression, Random Forest, Gradient Boosting, and Support Vector Machine) and evaluated on accuracy, precision, recall, and F1 Score.
+# Intall dependencies
+pip install -r requirements.txt
 
-All modeled performed reasonbly well, but none reached perfect accuracy given the unpredictability of playoff basketball. The best performing model was the **Support Vector Machine (SVM)**, which achieved:
-- Accuracy: 59%
-- F1 Score: 69%
-- Precision: 61%
-- Recall 79%
+# Run the Streamlit app
+streamlit run NBA playoffs simulator.py
+```
 
-While Random Forest and Gradient Boosting achieved slightly better raw accuracy (up to ~57%), they underperformed on F1 Score. Since playoff predicition requires balancing false positives and false negatives (e.g, not just predicting favorites but capturing potential upsets), **F1 Score was chosen as the primary selection metric.** This made SVM the most suitable model overall. 
+## Results/Demo
 
-     - It's calculated as: `FT/FGA = FTM ÷ FGA`
-     - This captures offensive aggression and efficiency; teams that foul less and shoot accurately often convert more points per possession.
+## Future Work
+- Improve model by incorporating play-level data
+- Add live data streaming for ongoing playoffs
+- Deploy with a web API
+
+## Contact
+Created by **Savannah Vo**
+Email: savannahlevo@gmail.com
+[LinkedIn](https://www.linkedin.com/in/savannahlevo/)
+
+
+     
 
 
