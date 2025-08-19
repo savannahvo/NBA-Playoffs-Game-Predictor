@@ -174,7 +174,7 @@ def apply_poster_background():
           background: linear-gradient(90deg, rgba(255,255,255,0) 58%, rgba(255,255,255,.96) 100%);
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 1200px) {
           .left-poster { display:none; }
         }
         </style>
@@ -182,10 +182,20 @@ def apply_poster_background():
         '''.replace("'{POSTER_URL}'", "'" + POSTER_URL + "'"),
         unsafe_allow_html=True
     )
+    st.markdown(
+        '''
+        <style>
+        .main .block-container {
+            padding-left: calc(var(--sidebar-w) + var(--strip-w) - 120px) !important;
+            max-width: 100% !important;
+        }
+        </style>
+        ''',
+        unsafe_allow_html=True
+    )
 
 
-
-        
+     
 def apply_cinematic_background():
     # Apply full-page cinematic background
     BG_URL = (
