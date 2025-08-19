@@ -130,7 +130,7 @@ def apply_poster_background():
     )
 
     st.markdown(
-        f'''
+        '''
         <style>
         :root{
           --sidebar-w: 240px;   
@@ -195,7 +195,7 @@ def apply_cinematic_background():
     )
 
     st.markdown(
-        f'''
+        '''
         <style>
     
         #bg-photo {
