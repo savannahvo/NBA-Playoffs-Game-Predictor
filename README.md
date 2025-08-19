@@ -23,7 +23,7 @@ NBA-Playoffs-Game-Predictor/
 │── notebooks/       # Jupyter notebooks for data processing, feature engineering, modeling, and simulator development
 │── simulator/       # Streamlit / Python scripts for running the simulator
 │── README.md        # Project documentation
-
+```
 
 ## Data Source
 - [Kaggle NBA Dataset](https://www.kaggle.com/datasets/eoinamoore/historical-nba-data-and-player-box-scores/data)
