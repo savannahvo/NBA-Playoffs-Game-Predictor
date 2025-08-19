@@ -6,7 +6,7 @@
 The purpose of this project is to create a machine learning model that predicts the outcomes of NBA playoff games using advanced team statistics and series context from the modern NBA era (2015-2025). The goal is not only to forecast winners but also to provide a foundation for building an interactive simulator for playoff scenarios.
 
 To accomplish this, I:
-- Used curated datasets from [Kaggle's Historical NBA Data and Player Box Scores](https://www.kaggle.com/datasets/wyattowalsh/basketball)
+- Used curated datasets from [Kaggle's Historical NBA Data and Player Box Scores](https://www.kaggle.com/datasets/eoinamoore/historical-nba-data-and-player-box-scores/data)
 - Engineered playoff-specific features
 - Trained and compared multiple models
 - Packaged the final model into a pipeline, enabling easy integration into a playoff simulator that generates predictions for real-time matchups
