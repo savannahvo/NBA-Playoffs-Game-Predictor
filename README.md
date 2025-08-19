@@ -1,6 +1,6 @@
 # NBA Playoff Game Predictor - Machine Learning Classifier
 ---
-![Simulator Demo](images/demo.gif)
+![Simulator Demo](images/miscellaneous/demo.gif)
 ---
 
 An interactive machine learning project that predicts the outcomes of NBA playoff games (2015-2025 seasons) using team statistics, Dean Oliver's Four Factors, and simulation-based models.
