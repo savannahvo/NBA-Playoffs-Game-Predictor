@@ -60,3 +60,12 @@ My model relies on four essential team-level metrics: Effective Field Goal Perce
      - Signifies how often a team gets to the line relative to field goal attempts.
      - It's calculated as: `FT/FGA = FTM ÷ FGA`
      - This captures offensive aggression and efficiency; teams that foul less and shoot accurately often convert more points per possession.
+
+## Table of Contents
+- [Data Overview](#data-overview)
+- [Modeling](#modeling)
+- [Results](#results)
+- [Next Steps](#next-steps)
+
+## Data Overview
+The data for this project 
