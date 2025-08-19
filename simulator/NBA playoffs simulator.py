@@ -183,8 +183,8 @@ def apply_poster_background():
         </style>
         <div class="left-poster"></div>
         ''',
-        unsafe_allow_html=True
-    )
+        st.markdown(css.replace("POSTER_URL", POSTER_URL), unsafe_allow_html=True)
+
 
 
 def apply_cinematic_background():
@@ -224,8 +224,8 @@ def apply_cinematic_background():
         <div id="bg-photo"></div>
         <div id="bg-fade"></div>
         ''',
-        unsafe_allow_html=True
-    )
+        st.markdown(css.replace("BG_URL", BG_URL), unsafe_allow_html=True)
+
 
 
 
