@@ -174,7 +174,7 @@ def apply_poster_background():
           inset: 0;
           border-radius: inherit;
           background: linear-gradient(90deg, rgba(255,255,255,0) 58%, rgba(255,255,255,.96) 100%);
-        }}
+        }
 
     
         @media (max-width: 900px) {
