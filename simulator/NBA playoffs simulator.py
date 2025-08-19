@@ -98,30 +98,29 @@ def apply_css_styling():
     st.markdown(css, unsafe_allow_html=True)
 
     # Additional CSS for dropdown styling
-    st.markdown('''
-    <style>
-    # Make the 'Team Stats' dropdown button more visible
-    details summary {
-        background-color: white !important;   
-        color: black !important;             
-        padding: 6px 12px !important;         
-        border-radius: 6px;                  
-        font-weight: bold;
-        cursor: pointer;
-    }
+    st.markdown(
+        '''
+        <style>
+        details summary {
+            background-color: white !important;
+            color: black !important;
+            padding: 6px 12px !important;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        details[open] summary {
+            background-color: white !important;
+            color: black !important;
+        }
+        details summary:hover {
+            background-color: #f5f5f5 !important;
+        }
+        </style>
+        ''',
+        unsafe_allow_html=True
+    )
 
-    # Keep white background when opened 
-    details[open] summary {
-        background-color: white !important;
-        color: black !important;
-    }
-
-    # Hover effect 
-    details summary:hover {
-        background-color: #f5f5f5 !important; 
-    }
-    </style>
-    ''', unsafe_allow_html=True)
 
 def apply_poster_background():
     # Apply left poster strip background styling
@@ -130,69 +129,72 @@ def apply_poster_background():
         with open(poster_path, "rb") as _f:
             _poster_b64 = base64.b64encode(_f.read()).decode()
 
-        st.markdown('''
-    <style>
-    :root{
-      --sidebar-w: 240px;     
-      --strip-gap: 18px;      
-      --strip-w: 400px;       
-      --top-gap: 90px;        
-      --bottom-gap: 140px;   
-    }
+        st.markdown(
+            '''
+            <style>
+            :root{
+              --sidebar-w: 240px;
+              --strip-gap: 100px;
+              --strip-w: 400px;
+              --top-gap: 90px;
+              --bottom-gap: 140px;
+            }
 
-    .main .block-container { position: relative; z-index: 1; }
+            .main .block-container { position: relative; z-index: 1; }
 
-    # Stabilize sidebar width so the strip can sit right next to it 
-    [data-testid="stSidebar"]{
-      width: var(--sidebar-w) !important;
-      min-width: var(--sidebar-w) !important;
-      max-width: var(--sidebar-w) !important;
-    }
+            [data-testid="stSidebar"]{
+              width: var(--sidebar-w) !important;
+              min-width: var(--sidebar-w) !important;
+              max-width: var(--sidebar-w) !important;
+            }
 
-    .left-poster,
-    .left-poster::after {
-      position: fixed;
-      pointer-events: none;
-      z-index: -1; 
-    }
+            .left-poster, .left-poster::after {
+              position: fixed;
+              pointer-events: none;
+              z-index: -1;
+            }
 
-    .left-poster{
-      top: var(--top-gap);
-      left: calc(var(--sidebar-w) + var(--strip-gap));
-      width: var(--strip-w);
-      height: calc(100vh - var(--bottom-gap));
-      background-image: url("data:image/jpeg;base64,REPLACE_POSTER");
-      background-size: auto 100%;   
-      background-repeat: no-repeat;
-      background-position: center top;
-      border-radius: 16px;
-      box-shadow: 0 12px 28px rgba(0,0,0,.15);
-    }
+            .left-poster{
+              top: var(--top-gap);
+              left: calc(var(--sidebar-w) + var(--strip-gap));
+              width: var(--strip-w);
+              height: calc(100vh - var(--bottom-gap));
+              background-image: url("data:image/jpeg;base64,REPLACE_POSTER");
+              background-size: auto 100%;
+              background-repeat: no-repeat;
+              background-position: center top;
+              border-radius: 16px;
+              box-shadow: 0 12px 28px rgba(0,0,0,.15);
+            }
 
-    # Soft fade into the page on the right edge 
-    .left-poster::after{
-      content:"";
-      inset:0;
-      border-radius:inherit;
-      background: linear-gradient(90deg, rgba(255,255,255,0) 58%, rgba(255,255,255,.96) 100%);
-    }
+            .left-poster::after{
+              content:"";
+              inset:0;
+              border-radius:inherit;
+              background: linear-gradient(90deg, rgba(255,255,255,0) 58%, rgba(255,255,255,.96) 100%);
+            }
 
-    @media (max-width: 1200px){
-      .left-poster { display:none; }
-    }
-    </style>
-    <div class="left-poster"></div>
-    '''.replace("REPLACE_POSTER", _poster_b64), unsafe_allow_html=True)
+            @media (max-width: 1200px){
+              .left-poster { display:none; }
+            }
+            </style>
+            <div class="left-poster"></div>
+            '''.replace("REPLACE_POSTER", _poster_b64),
+            unsafe_allow_html=True
+        )
 
-        st.markdown('''
-        <style>
-     
-        .main .block-container {
-            padding-left: calc(var(--sidebar-w) + var(--strip-gap) + var(--strip-w) - 120px) !important;
-            max-width: 100% !important; 
-        }
-        </style>
-        ''', unsafe_allow_html=True)
+        st.markdown(
+            '''
+            <style>
+            .main .block-container {
+                padding-left: calc(var(--sidebar-w) + var(--strip-gap) + var(--strip-w) - 120px) !important;
+                max-width: 100% !important;
+            }
+            </style>
+            ''',
+            unsafe_allow_html=True
+        )
+
 
 def apply_cinematic_background():
     # Apply full-page cinematic background
@@ -201,78 +203,89 @@ def apply_cinematic_background():
         with open(bg_path, "rb") as f:
             _bg_b64 = base64.b64encode(f.read()).decode()
 
-        st.markdown('''
-        <style>
-        # Stronger cinematic photo (very back layer) 
-        #bg-photo{
-          position: fixed;
-          inset: 0;
-          background-image: url("data:image/jpeg;base64,REPLACE_BG");
-          background-size: cover;
-          background-position: center top;
-          background-repeat: no-repeat;
-          opacity: 0.34;                 
-          filter: blur(0.6px)           
-                  saturate(0.85)
-                  brightness(0.97);
-          z-index: -10;
-        }
+        st.markdown(
+            '''
+            <style>
+            /* Stronger cinematic photo (very back layer) */
+            #bg-photo{
+              position: fixed;
+              inset: 0;
+              background-image: url("data:image/jpeg;base64,REPLACE_BG");
+              background-size: cover;
+              background-position: center top;
+              background-repeat: no-repeat;
+              opacity: 0.34;
+              filter: blur(0.6px) saturate(0.85) brightness(0.97);
+              z-index: -10;
+            }
 
-        # Softer white fade so more image shows through but text stays readable 
-        #bg-fade{
-          position: fixed;
-          inset: 0;
-          pointer-events: none;
-          background:
-            linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.78) 75%, #ffffff 100%),
-            linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.03) 55%, rgba(255,255,255,0.08) 100%);
-          z-index: -9;
-        }
-        </style>
+            /* Softer white fade so more image shows through but text stays readable */
+            #bg-fade{
+              position: fixed;
+              inset: 0;
+              pointer-events: none;
+              background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.78) 75%, #ffffff 100%),
+                          linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.03) 55%, rgba(255,255,255,0.08) 100%);
+              z-index: -9;
+            }
+            </style>
 
-        <div id="bg-photo"></div>
-        <div id="bg-fade"></div>
-        '''.replace("REPLACE_BG", _bg_b64), unsafe_allow_html=True)
+            <div id="bg-photo"></div>
+            <div id="bg-fade"></div>
+            '''.replace("REPLACE_BG", _bg_b64),
+            unsafe_allow_html=True
+        )
+
 
 def apply_left_poster_strip():
     # Apply left poster strip as faded background
     poster_path = "../images/miscellaneous/2025 NBA Playoffs Players.jpg"
-    left_b64 = load_image_b64(poster_path)
+    left_b64 = None
+    if os.path.exists(poster_path):
+        with open(poster_path, "rb") as f:
+            left_b64 = base64.b64encode(f.read()).decode()
+
     if left_b64:
         st.markdown(
             '''
-    <style>
-    .stApp::before{
-      content:'';
-      position:fixed;
-      top:94px; left:230px;
-      width:190px; height:calc(100vh - 140px);
-      background-image:url(data:image/jpeg;base64,REPLACE_IMAGE);
-      background-size:contain;      
-      background-repeat:no-repeat;
-      background-position:center top;
-      background-color:#ffffff;
-      filter:saturate(.95) brightness(.96);
-      box-shadow:0 12px 28px rgba(0,0,0,.15);
-      border-radius:16px;
-      z-index:0; pointer-events:none;
-    }
-    .stApp::after{
-      content:'';
-      position:fixed;
-      top:94px; left:230px;
-      width:190px; height:calc(100vh - 140px);
-      border-radius:16px;
-      background:linear-gradient(90deg, rgba(255,255,255,0) 58%, rgba(255,255,255,0.95) 100%);
-      z-index:0; pointer-events:none;
-    }
-    .main .block-container{ position:relative; z-index:1; }
-    @media (max-width:1600px){ .stApp::before,.stApp::after{ left:220px; width:175px; } }
-    @media (max-width:1200px){ .stApp::before,.stApp::after{ display:none; } }
-    </style>
-    '''.replace("REPLACE_IMAGE", left_b64),
-                unsafe_allow_html=True
-            )
+            <style>
+            .stApp::before{
+              content:'';
+              position:fixed;
+              top:94px; left:230px;
+              width:190px; height:calc(100vh - 140px);
+              background-image:url(data:image/jpeg;base64,REPLACE_IMAGE);
+              background-size:contain;
+              background-repeat:no-repeat;
+              background-position:center top;
+              background-color:#ffffff;
+              filter:saturate(.95) brightness(.96);
+              box-shadow:0 12px 28px rgba(0,0,0,.15);
+              border-radius:16px;
+              z-index:0; pointer-events:none;
+            }
+            .stApp::after{
+              content:'';
+              position:fixed;
+              top:94px; left:230px;
+              width:190px; height:calc(100vh - 140px);
+              border-radius:16px;
+              background:linear-gradient(90deg, rgba(255,255,255,0) 58%, rgba(255,255,255,0.95) 100%);
+              z-index:0; pointer-events:none;
+            }
+            .main .block-container{ position:relative; z-index:1; }
+
+            @media (max-width:1600px){
+              .stApp::before,.stApp::after{ left:220px; width:175px; }
+            }
+            @media (max-width:1200px){
+              .stApp::before,.stApp::after{ display:none; }
+            }
+            </style>
+            '''.replace("REPLACE_IMAGE", left_b64),
+            unsafe_allow_html=True
+        )
+
 
 # Color utility functions
 def _hex_to_rgb(h):
