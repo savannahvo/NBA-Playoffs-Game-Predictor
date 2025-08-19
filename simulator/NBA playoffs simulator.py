@@ -383,7 +383,7 @@ def get_series_record(df, team1, team2, current_date, current_game_id=None):
 # File and image utility functions
 def load_logo(team):
     # Load team logo as base64 encoded string
-    path = f'../images/team logos/{team}.png'
+    path = f'images/team logos/{team}.png'
     if os.path.exists(path):
         with open(path, 'rb') as img:
             return base64.b64encode(img.read()).decode()
@@ -569,7 +569,7 @@ def main():
     render_explanation_centered()
 
     # Load model and data
-    model = joblib.load("../model/final_pipeline_model.pkl")
+    model = joblib.load("model/final_pipeline_model.pkl")
     all_games, actual_stats = load_data()
 
     # Add round and game number columns if not present
