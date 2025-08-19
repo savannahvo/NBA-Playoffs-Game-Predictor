@@ -178,7 +178,7 @@ def apply_poster_background():
 
     
         @media (max-width: 900px) {
-          .left-poster {{ display:none; }
+          .left-poster { display:none; }
         }
         </style>
         <div class="left-poster"></div>
