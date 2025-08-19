@@ -564,7 +564,7 @@ def main():
     ''', unsafe_allow_html=True)
 
     # Hero image and title
-    st.image('images/miscellaneous/2025 NBA Playoffs Court.jpeg', use_containder_width=True)
+    st.image('images/miscellaneous/2025 NBA Playoffs Court.jpeg', use_container_width=True)
     st.markdown('<div class="custom-title">2025 NBA PLAYOFFS GAME PREDICTOR</div>', unsafe_allow_html=True)
     render_explanation_centered()
 
