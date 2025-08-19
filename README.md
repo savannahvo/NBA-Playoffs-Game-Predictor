@@ -2,6 +2,15 @@
 ---
 ![NBA Playoffs Court](https://github.com/savannahvo/NBA-Playoffs-Game-Predictor/blob/main/2025%20NBA%20Playoffs%20Court.jpeg?raw=true)
 ---
+## Project Goal
+The purpose of this project is to create a machine learning model that predicts the outcomes of NBA playoff games using advanced team statistics and series context from the modern NBA era (2015-2025). The goal is not only to forecast winners but also to provide a foundation for building an interactive simulator for playoff scenarios.
+
+To accomplish this, I:
+- Used curated datasets from [Kaggle's Historical NBA Data and Player Box Scores](https://www.kaggle.com/datasets/wyattowalsh/basketball)
+- Engineered playoff-specific features
+- Trained and compared multiple models
+- Packaged the final model into a pipeline, enabling easy integration into a playoff simulator that generates predictions for real-time matchups
+
 ## Project Summary
 The goal of this project was to predict NBA playoff game outcomes using machine learning models trained on advanced team statistics, series context, and matchup history. Multiple models were tested (Logistic Regression, Random Forest, Gradient Boosting, and Support Vector Machine) and evaluated on accuracy, precision, recall, and F1 Score.
 
@@ -15,7 +24,7 @@ While Random Forest and Gradient Boosting achieved slightly better raw accuracy 
 
 ### Why 2025-2025 Seasons?
 I selected the 2015-2025 seasons to capture the modern NBA era. Around 2014-2015, the league underwent a major tactical shift that significantly changed how games are played and decided:  
-  1. ** Rise of the 3-Point Era**
+  1. **Rise of the 3-Point Era**
      - The Golden State Warriors, led by **Stephen Curry**, revolutionized basketball by showing how the 3-point shot could be the central weapon of an offense.
      - Curry's unprecedented shooting range and efficiency reshaped defenses and forced every team to adjust.
      - League-wide, average 3PA per game jumped from ~22 (2014) to ~27 (2015) and has continued to rise, with some teams now attempting 40+ threes per game.
