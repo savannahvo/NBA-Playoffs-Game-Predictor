@@ -35,6 +35,19 @@ I selected the 2015-2025 seasons to capture the modern NBA era. Around 2014-2015
 
 ### Why I Choose These Advanced Metrics
 My model relies on four essential team-level metrics: Effective Field Goal Percentage (eFG%), Turnover Percentage (TOV%), Offensive and Defensive Rebounding Percentage (ORB% and DRB%), and Free Throw Rate (FT/FGA) because they encapsulate the core principles of winning basketball, as identified by Dean Oliver's "Four Factors". This framework is well-respected in analytics for its predictive strength and interpretability:
-  1. **Shooting (eFG%) - ~40% weight
-     - Reflects shooting efficiency, adjusting for the greater value of 3-pointers. It's calculated as: \text{eFG\%} = \frac{\text{FG} + 0.5 \cdot \text{3P}}{\text{FGA}} \]
-     - 
+  1. **Shooting (eFG%) - ~40% weight**
+     - Reflects shooting efficiency, adjusting for the greater value of 3-pointers.
+     - It's calculated as: `eFG% = (FGM + 0.5 × 3PM) ÷ FGA`
+     - According to Basketball Reference, shooting is the most critical factor in winning games.
+  2. **Turnovers (TOV%) - ~25% weight**
+     - Measures ball security, indicating how often a team gives up possessions.
+     - It's calculated as: `TOV% = TOV ÷ (FGA + 0.44 × FTA + TOV)`
+     - As a pace-independent metric, it helps explain how well teams protect the ball.
+  3. **Rebounding (ORB%/DRB%) - ~20% weight**
+     - Captures a team's ability to create extra possessions and limit opponent second-chance points.
+     - It's calculated as: `ORB% = ORB ÷ (ORB + Opponent DRB)`
+     - Rebounding stands out as one of the most consistent metrics across seasons.
+  4. **Free Throw Rate (FT/FGA) - ~15% weight**
+     - Signifies how often a team gets to the line relative to field goal attempts.
+     - It's calculated as: `FT/FGA = FTM ÷ FGA`
+     - This captures offensive aggression and efficiency; teams that foul less and shoot accurately often convert more points per possession.
