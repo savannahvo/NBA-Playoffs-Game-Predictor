@@ -148,7 +148,6 @@ def apply_poster_background():
           max-width: var(--sidebar-w) !important;
         }
 
-
         .left-poster, .left-poster::after {
           position: fixed;
           pointer-events: none;
@@ -168,7 +167,6 @@ def apply_poster_background():
           box-shadow: 0 12px 28px rgba(0,0,0,.15);
         }
 
-       
         .left-poster::after {
           content: "";
           inset: 0;
@@ -176,14 +174,15 @@ def apply_poster_background():
           background: linear-gradient(90deg, rgba(255,255,255,0) 58%, rgba(255,255,255,.96) 100%);
         }
 
-    
         @media (max-width: 900px) {
           .left-poster { display:none; }
         }
         </style>
         <div class="left-poster"></div>
-        ''',
-        st.markdown(css.replace("POSTER_URL", POSTER_URL), unsafe_allow_html=True)
+        '''.replace("'{POSTER_URL}'", "'" + POSTER_URL + "'"),
+        unsafe_allow_html=True
+    )
+
 
 
         
@@ -197,7 +196,6 @@ def apply_cinematic_background():
     st.markdown(
         '''
         <style>
-    
         #bg-photo {
           position: fixed;
           inset: 0;
@@ -210,7 +208,6 @@ def apply_cinematic_background():
           z-index: -10; 
         }
 
-       
         #bg-fade {
           position: fixed;
           inset: 0;
@@ -223,9 +220,9 @@ def apply_cinematic_background():
 
         <div id="bg-photo"></div>
         <div id="bg-fade"></div>
-        ''',
-        st.markdown(css.replace("BG_URL", BG_URL), unsafe_allow_html=True)
-
+        '''.replace("'{BG_URL}'", "'" + BG_URL + "'"),
+        unsafe_allow_html=True
+    )
 
 
 
@@ -253,7 +250,7 @@ def apply_left_poster_strip():
             box-shadow:0 12px 28px rgba(0,0,0,.15);
             border-radius:16px;
             z-index:0; pointer-events:none;
-            }
+        }
         .stApp::after{
             content:'';
             position:fixed;
@@ -272,9 +269,10 @@ def apply_left_poster_strip():
             .stApp::before,.stApp::after{ display:none; }
         }
         </style>
-        ''',
+        '''.replace("'{POSTER_URL}'", "'" + POSTER_URL + "'"),
         unsafe_allow_html=True
     )
+
 
 
 
