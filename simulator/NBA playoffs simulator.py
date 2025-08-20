@@ -19,28 +19,37 @@ import os
 import base64
 import re
 
-# Force centered layout for consistency
-st.set_page_config(layout="centered")
+# Set layout as wide (so CSS takes over)
+st.set_page_config(layout="wide")
 
+# Custom CSS for consistent layout
 st.markdown(
-    '''
+    """
     <style>
-
+    /* Force main content to a fixed centered column */
     .block-container {
-        max-width: 1200px;   
-        margin: auto;       
+        max-width: 1100px;   /* control overall width */
+        margin-left: auto;
+        margin-right: auto;
         padding-top: 2rem;
     }
 
-
+    /* Sidebar fixed width */
     [data-testid="stSidebar"] {
-        min-width: 260px;
-        max-width: 260px;
+        min-width: 250px;
+        max-width: 250px;
+    }
+
+    /* Prevent "stretching" on ultra-wide monitors */
+    .main {
+        display: flex;
+        justify-content: center;
     }
     </style>
-    ''',
+    """,
     unsafe_allow_html=True
 )
+
 
 # Configuration and constants
 # Team brand color palettes (primary / secondary / alt)
