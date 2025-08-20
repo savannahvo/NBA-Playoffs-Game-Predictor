@@ -19,36 +19,46 @@ import os
 import base64
 import re
 
-# Set layout as wide (so CSS takes over)
+import streamlit as st
+
 st.set_page_config(layout="wide")
 
-# Custom CSS for consistent layout
+# Custom CSS to center things nicely
 st.markdown(
     """
     <style>
-    /* Force main content to a fixed centered column */
-    .block-container {
-        max-width: 1100px;   /* control overall width */
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: 2rem;
-    }
-
-    /* Sidebar fixed width */
-    [data-testid="stSidebar"] {
-        min-width: 250px;
-        max-width: 250px;
-    }
-
-    /* Prevent "stretching" on ultra-wide monitors */
     .main {
         display: flex;
         justify-content: center;
+    }
+    .block-container {
+        max-width: 1300px;
+        padding-top: 1rem;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
+# Define two locked columns
+col1, col2 = st.columns([1, 2.5], gap="large")  # adjust ratio
+
+# --- Left side (filters + poster) ---
+with col1:
+    st.sidebar.header("Filters")   # keep sidebar if needed
+    # Or place your poster image directly here
+    st.image("your_poster.png", use_container_width=True)
+
+# --- Right side (main content) ---
+with col2:
+    st.title("2025 NBA PLAYOFFS GAME PREDICTOR")
+    st.write(
+        "This simulator covers the 2025 NBA Playoffs. "
+        "It compares a support vector machine (SVM) model's predicted game winner "
+        "and win probability with the real box score and team stats."
+    )
+    # rest of your simulator logic here
+
 
 
 # Configuration and constants
