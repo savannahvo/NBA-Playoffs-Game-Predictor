@@ -61,8 +61,7 @@ streamlit run NBA playoffs simulator.py
 - Deploy with a web API
 
 ## Contact
-# Created by **Savannah Vo**
-# Email: savannahlevo@gmail.com || [LinkedIn](https://www.linkedin.com/in/savannahlevo/)
+Email: savannahlevo@gmail.com || [LinkedIn](https://www.linkedin.com/in/savannahlevo/)
 
 
      
