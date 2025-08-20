@@ -698,6 +698,9 @@ def main():
     # Clean up filtered data
     filtered = filtered.drop(columns=['seriesId', 'matchupType', 'conference_home', 'conference_away'], errors='ignore')
 
+    # Prepare feature matrix
+    X_df = filtered.drop(columns=non_feature_cols, errors='ignore').copy()
+    
     # Generate model predictions
     try:
         preds = model.predict(X_df)
