@@ -174,9 +174,11 @@ def apply_poster_background():
             z-index: 3;
         }
 
-        @media (max-width: 1200px){
-            .left-poster, .left-poster::after { display:none; }
-            .main .block-container{ margin-left: 0 !important; }
+        .main .block-container {
+            max-width: 1300px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding-left: calc(var(--sidebar-w) + var(--strip-gap) + var(--strip-w) - 120px) !important;
         }
         </style>
         <div class="left-poster"></div>
@@ -273,13 +275,11 @@ def apply_left_poster_strip():
             background:linear-gradient(90deg, rgba(255,255,255,0) 58%, rgba(255,255,255,0.95) 100%);
             z-index:0; pointer-events:none;
         }
-        .main .block-container{ position:relative; z-index:1; }
 
-        @media (max-width:1600px){
-            .stApp::before,.stApp::after{ left:220px; width:175px; }
-        }
-        @media (max-width:1200px){
-            .stApp::before,.stApp::after{ display:none; }
+        .main .block-container {
+            max-width: 1300px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
         }
         </style>
         '''.replace("'{POSTER_URL}'", "'" + POSTER_URL + "'"),
