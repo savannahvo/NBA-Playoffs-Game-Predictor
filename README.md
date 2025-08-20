@@ -64,6 +64,7 @@ streamlit run NBA playoffs simulator.py
 - Interactive simulator available via Streamlit
 - Displays predicted vs. actual winners, confidence scores, and team statistics
 - Provides insights into model strengths and weaknesses across different playoff rounds
+  
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://nba-playoffs-game-predictor-6axovmkygjqsmmvcevipcd.streamlit.app/)
 
 ## Future Work
