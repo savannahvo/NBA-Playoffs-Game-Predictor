@@ -151,7 +151,7 @@ def apply_poster_background():
         .left-poster, .left-poster::after {
             position: fixed;
             pointer-events: none;
-            z-index: -1;
+            z-index: 0;
         }
 
         .left-poster{
