@@ -54,7 +54,8 @@ streamlit run NBA playoffs simulator.py
 ```
 
 ## Results/Demo
-[![Open in Streamlit](https://nba-playoffs-game-predictor-6axovmkygjqsmmvcevipcd.streamlit.app/)]
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://nba-playoffs-game-predictor-6axovmkygjqsmmvcevipcd.streamlit.app/)
+
 ## Future Work
 - Improve model by incorporating play-level data
 - Add live data streaming for ongoing playoffs
