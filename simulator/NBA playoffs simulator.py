@@ -669,26 +669,34 @@ def main():
         'gameLabel', 'gameSubLabel',
         'roundNumber'
     ]
+    # Load expected feature list from modeled_features.pkl 
+    feature_list_path = os.path.join('../model', 'modeled_features.pkl')
+    saved_feature_cols = None
     
+    if os.path.exists(feature_list_path):
+        try:
+            obj = joblib.load(feature_list_path) 
+            # Normalize to a plain list of strings
+            if isinstance(obj, dict):
+                for k in ("feature_names", "features", "columns", "cols"):
+                    if k in obj:
+                        obj = obj[k]
+                        break
+            saved_feature_cols = [str(c) for c in list(obj)]
+        except Exception as e:
+            st.warning(f"Could not load {feature_list_path}: {e}")
+            saved_feature_cols = None
+    
+    # Get expected model features 
+    model_expected_cols = saved_feature_cols or get_feature_cols_from_model(model)
+    
+    if model_expected_cols is None:
+        st.error("Could not determine expected feature columns. "
+                 "Ensure ../model/modeled_features.pkl exists or the model exposes feature_names_in_.")
+        st.stop()
+
     # Clean up filtered data
     filtered = filtered.drop(columns=['seriesId', 'matchupType', 'conference_home', 'conference_away'], errors='ignore')
-
-    # Prepare feature matrix
-    X_df = filtered.drop(columns=non_feature_cols, errors='ignore').copy()
-
-    # Align features with model expectations
-    if model_expected_cols is not None:
-        missing_cols = [c for c in model_expected_cols if c not in X_df.columns]
-        extra_cols = [c for c in X_df.columns if c not in model_expected_cols]
-        for c in missing_cols:
-            X_df[c] = float('nan')
-        if extra_cols:
-            X_df = X_df.drop(columns=extra_cols, errors='ignore')
-        X_df = X_df.reindex(columns=model_expected_cols)
-        if missing_cols or extra_cols:
-            st.warning(f'Adjusted feature columns to match the model. Missing added as NaN: {missing_cols} | Dropped extras: {extra_cols}')
-    else:
-        st.info('Model feature list not found; consider saving model/final_svm_model_features.txt during training.')
 
     # Generate model predictions
     try:
