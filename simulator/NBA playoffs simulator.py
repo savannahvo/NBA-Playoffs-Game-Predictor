@@ -151,7 +151,7 @@ def apply_poster_background():
         .left-poster, .left-poster::after {
             position: fixed;
             pointer-events: none;
-            z-index: 0;
+            z-index: 2; pointer-events: none;
         }
 
         .left-poster{
@@ -215,7 +215,7 @@ def apply_cinematic_background():
             background-repeat: no-repeat;
             opacity: 0.34;
             filter: blur(0.6px) saturate(0.85) brightness(0.97);
-            z-index: -10;
+            z-index: 0;
         }
 
         #bg-fade{
@@ -224,7 +224,7 @@ def apply_cinematic_background():
             pointer-events: none;
             background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.78) 75%, #ffffff 100%),
                         linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.03) 55%, rgba(255,255,255,0.08) 100%);
-            z-index: -9;
+            z-index: 1;
         }
         </style>
 
