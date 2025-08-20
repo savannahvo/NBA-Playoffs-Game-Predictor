@@ -45,7 +45,8 @@ NBA-Playoffs-Game-Predictor/
 ```
 
 ## Data Source
-- [Kaggle NBA Dataset](https://www.kaggle.com/datasets/eoinamoore/historical-nba-data-and-player-box-scores/data)
+- [Kaggle: Historical NBA Data and Player Box Scores](https://www.kaggle.com/datasets/eoinamoore/historical-nba-data-and-player-box-scores/data)
+- Files used: `Games.csv` and `TeamStatistics.csv`
 
 ## How to Run
 ```bash
