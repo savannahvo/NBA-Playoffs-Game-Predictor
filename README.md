@@ -39,22 +39,22 @@ Final Model Performance (SVM):
 - Precision: 61%
 - Recall 79%
 ---
-## Why is accuracy ~59%?
+## Why is Accuracy ~59%?
 Single-game basketball prediction has a hard ceiling. Even the “true” pre-game favorite loses a lot because of variance (hot/cold 3-point shooting, foul trouble, random runs), matchup quirks, and late-game coin-flip situations. If the average favorite only wins, say, ~60–65% of the time, then the **Bayes-optimal top-1 accuracy** (always pick the higher-probability side) can’t exceed that average very much. In other words, when many games are inherently close, **59% top-1 accuracy is not far from the practical ceiling** without using betting-market information.
 
-#### Sources of irreducible noise
+#### Sources of Irreducible Noise
 - **High variance from 3s & free throws:** Small swings in 3-point luck or whistle patterns flip outcomes that models can’t foresee.
 - **Lineups & injuries:** Late scratches, minute limits, and rotation changes are hard to encode from historical team stats alone.
 - **Series dynamics:** Adjustments within a series (matchups, scheme tweaks) shift team strength game-to-game.
 - **Small playoff sample sizes:** Relative to the regular season, the playoffs provide far fewer training examples per round/game context.
 - **Parity & clutch time:** Many playoff games have one-possession “coin-flip” finishes.
 
-#### Modeling constraints specific to this project
+#### Modeling Constraints Specific to This Project
 - **Team-level features:** The simulator uses team four-factors, series state, H2H aggregates, etc. It does not (yet) include player-level RAPM/RAPTOR/EPM, injury reports, referee assignments, or betting lines—features that typically boost accuracy.
 - **Round/game-specific shifts:** Features are tailored by round/game number, which helps, but the data per bucket is smaller, limiting what more complex models can learn.
 - **SVM focus:** The deployed model is an SVM. Tree ensembles (GBM/XGBoost/Random Forest) or stacking can help capture non-linear interactions, and post-hoc **probability calibration** (isotonic/Platt) can improve the quality of probabilities even if top-1 accuracy moves little.
 
-#### Accuracy isn’t the whole story
+#### Accuracy Isn’t The Whole Story
 Top-1 accuracy treats a 51% call the same as a 90% call. For probability models, it’s more informative to report:
 - **Brier score** (mean squared error of the probabilities)
 - **Log loss** (penalizes over-confident wrong picks)
@@ -62,11 +62,11 @@ Top-1 accuracy treats a 51% call the same as a 90% call. For probability models,
 - **AUC/ROC** for ranking strength
 These reflect whether the model’s confidence is trustworthy, not just whether the pick matched the final score.
 
-#### Reasonable baselines
+#### Reasonable Baselines
 - **Home-team or favorite heuristics** typically land near the high-50s/low-60s in many NBA settings.
 - **Betting markets** set a practical upper bound; beating them consistently is very difficult. Models that approach market-level accuracy/calibration are already strong.
 
-#### How to push beyond ~59%
+#### How to Push Beyond ~59%
 - Add **player-level** features (availability, on/off, RAPM-style impact, recent form).
 - Ingest **injury news** / starting lineups and **rest/travel** data.
 - Include **market signals** (moneyline/point spread) as features (for research comparison; omit if you want a purely “from data” model).
