@@ -1,29 +1,37 @@
-# NBA Playoff Game Predictor - Machine Learning Classifier
-#### An interactive machine learning project that predicts the outcomes of NBA playoff games (2015-2025 seasons) using team statistics, Dean Oliver's Four Factors, and simulation-based models.
+# NBA Playoff Game Predictor 
+#### An interactive sports analytics project that predicts the outcomes of NBA playoff games using machine learning. The system incorporates [Dean Oliver's Four Factors](https://www.basketball-reference.com/about/factors.html), series context, and simulation-based models to estimate win probabilities and visualize predictions in a Streamlit application.
 ---
 ![Simulator Demo](images/miscellaneous/demo.gif)
 ---
 
 
 ## Overview
-This project was built to explore sports analytics and predictive modeling in the NBA. It uses regular season and playoff data to train machine learning models that estimate win probabilities for each game and display predictions in a playoff simulator.
+This project explores predictive modeling in sports analytics with a focus on the NBA playoffs, where unpredictability and momentum play major roles. The dataset covers NBA playoff games from 2015-2025, with models trained on 2015-2022 seasons, validated on 2023-2024, and evaluated on the 2025 playoffs to simulate real-world predictive performance.
 
 ## Project Summary
-The goal of this project was to predict NBA playoff game outcomes using machine learning models trained on advanced team statistics, series context, and matchup history. Multiple models were tested (Logistic Regression, Random Forest, Gradient Boosting, and Support Vector Machine) and evaluated on accuracy, precision, recall, and F1 Score.
+The goal was to predict NBA playoff game outcomes using multiple machine learning models trained on team statistics, matchup history, and series dynamics.
 
-All modeled performed reasonbly well, but none reached perfect accuracy given the unpredictability of playoff basketball. The best performing model was the **Support Vector Machine (SVM)**, which achieved:
+Models evaluated:
+- Logistic Regression
+- Random Forest
+- Gradient Boosting
+- Support Vector Machine (SMV)
+
+The Support Vector Machine (SVM) emerged as the best overall model based on its ability to balance accuracy with precision and recall, particularly important for playoff scenarios where upsets are common. F1 Score was chosen as the primary evaluation metric, since playoff prediction requires balancing false positives and false negatives.
+
+Final Model Performance (SVM):
 - Accuracy: 59%
 - F1 Score: 69%
 - Precision: 61%
 - Recall 79%
 
-While Random Forest and Gradient Boosting achieved slightly better raw accuracy (up to ~57%), they underperformed on F1 Score. Since playoff predicition requires balancing false positives and false negatives (e.g, not just predicting favorites but capturing potential upsets), **F1 Score was chosen as the primary selection metric.** This made SVM the most suitable model overall. 
 
 ## Features
-- Predicts outcomes of playoff games using SVM models
+- Predicts outcomes of playoff games using SVM classification models
 - Incorporates [Dean Oliver's Four Factors](https://www.basketball-reference.com/about/factors.html) (eFG%, TOV%, ORB%, DRB%, FT/FGA)
-- Accounts for seeding, head-to-head matchups, momentum, and series context
-- Interactive Streamlit app that displays predictions alongside actual results
+- Adjusts for seeding, head-to-head matchups, momentum, and series context
+- Interactive Streamlit siumlator displaying predictions vs. actual results
+- Modular project design for scalability and future enhancements
 
 ## Project Structure
 ```bash
@@ -32,7 +40,7 @@ NBA-Playoffs-Game-Predictor/
 │── images/          # Project images and logos
 │── model/           # Saved machine learning models and features
 │── notebooks/       # Jupyter notebooks for data processing, feature engineering, modeling, and simulator development
-│── simulator/       # Streamlit / Python scripts for running the simulator
+│── simulator/       # Streamlit app / Python scripts for running the simulator
 │── README.md        # Project documentation
 ```
 
@@ -53,17 +61,20 @@ streamlit run NBA playoffs simulator.py
 ```
 
 ## Results/Demo
+- Interactive simulator available via Streamlit
+- Displays predicted vs. actual winners, confidence scores, and team statistics
+- Provides insights into model strengths and weaknesses across different playoff rounds
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://nba-playoffs-game-predictor-6axovmkygjqsmmvcevipcd.streamlit.app/)
 
 ## Future Work
-- Improve model by incorporating play-level data
-- Add live data streaming for ongoing playoffs
-- Deploy with a web API
+- Play-level data integration -> Improve granularity of features by analyzing player actions
+- Live data streamining -> Update predictions during ongoing playoff games
+- Web API deployment -> Expose predictions for integration into dashboards or external apps
+
+## Tech Stack
+- Languages and Tools: Python.....
 
 ## Contact
-Email: savannahlevo@gmail.com || [LinkedIn](https://www.linkedin.com/in/savannahlevo/)
-
-
-     
+Email: savannahlevo@gmail.com || [LinkedIn](https://www.linkedin.com/in/savannahlevo/)     
 
 
