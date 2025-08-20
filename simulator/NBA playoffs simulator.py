@@ -535,6 +535,10 @@ def load_data():
     a = pd.read_csv(a_path)
     return g, a
 
+apply_css_styling()
+apply_cinematic_background()   
+apply_left_poster_strip()     
+
 # Main application function
 def main():
     # Main Streamlit application function
