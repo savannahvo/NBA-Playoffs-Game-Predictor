@@ -61,20 +61,20 @@ pip install -r requirements.txt
 streamlit run NBA playoffs simulator.py
 ```
 
-## Results/Demo
-- Interactive simulator available via Streamlit
-- Displays predicted vs. actual winners, confidence scores, and team statistics
-- Provides insights into model strengths and weaknesses across different playoff rounds
-  
-[![Open in Streamlit](https://nba-playoffs-game-predictor-mto2nkdzcubqnv9curkyfz.streamlit.app/)
+## Results / Demo
+- Interactive simulator available via Streamlit  
+- Displays predicted vs. actual winners, confidence scores, and team statistics  
+- Provides insights into model strengths and weaknesses across different playoff rounds  
+
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://nba-playoffs-game-predictor-mto2nkdzcubqnv9curkyfz.streamlit.app/)
+
 
 ## Future Work
 - Play-level data integration -> Improve granularity of features by analyzing player actions
 - Live data streamining -> Update predictions during ongoing playoff games
 - Web API deployment -> Expose predictions for integration into dashboards or external apps
 
-## Tech Stack
-- Languages and Tools: Python.....
+**Built with:** Python • Streamlit • scikit-learn • pandas • numpy • joblib • (Matplotlib/Altair) • Jupyter • GitHub • Streamlit Community Cloud
 
 ## Contact
 Email: savannahlevo@gmail.com || [LinkedIn](https://www.linkedin.com/in/savannahlevo/)     
