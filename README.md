@@ -4,6 +4,19 @@
 ![Simulator Demo](images/miscellaneous/demo.gif)
 ---
 
+## Table of Contents
+- [Overview](#overview)
+- [Project Summary](#project-summary)
+- [Why is accuracy ~59%?](#why-is-accuracy-59)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Data Source](#data-source)
+- [How to Run](#how-to-run)
+- [Results / Demo](#results--demo)
+- [Future Work](#future-work)
+- [Contact](#contact)
+
+---
 
 ## Overview
 This project explores predictive modeling in sports analytics with a focus on the NBA playoffs, where unpredictability and momentum play major roles. The dataset covers NBA playoff games from 2015-2025, with models trained on 2015-2022 seasons, validated on 2023-2024, and evaluated on the 2025 playoffs to simulate real-world predictive performance.
