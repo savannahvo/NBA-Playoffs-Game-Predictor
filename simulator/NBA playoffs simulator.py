@@ -19,6 +19,29 @@ import os
 import base64
 import re
 
+# Force centered layout for consistency
+st.set_page_config(layout="centered")
+
+st.markdown(
+    '''
+    <style>
+
+    .block-container {
+        max-width: 1200px;   
+        margin: auto;       
+        padding-top: 2rem;
+    }
+
+
+    [data-testid="stSidebar"] {
+        min-width: 260px;
+        max-width: 260px;
+    }
+    </style>
+    ''',
+    unsafe_allow_html=True
+)
+
 # Configuration and constants
 # Team brand color palettes (primary / secondary / alt)
 TEAM_PALETTE_BASE = {
