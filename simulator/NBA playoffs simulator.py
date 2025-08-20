@@ -134,13 +134,12 @@ def apply_poster_background():
         <style>
         :root{
           --sidebar-w: 240px;
-            --strip-gap: 100px;
-            --strip-w: 400px;
+            --strip-gap: 28px;
+            --strip-w: 360px;
             --top-gap: 90px;
             --bottom-gap: 140px;
         }
 
-        .main .block-container { position: relative; z-index: 1; }
 
         [data-testid="stSidebar"]{
             width: var(--sidebar-w) !important;
@@ -151,7 +150,7 @@ def apply_poster_background():
         .left-poster, .left-poster::after {
             position: fixed;
             pointer-events: none;
-            z-index: 2; pointer-events: none;
+            border-radius: 16px;
         }
 
         .left-poster{
@@ -163,8 +162,8 @@ def apply_poster_background():
             background-size: auto 100%;
             background-repeat: no-repeat;
             background-position: center top;
-            border-radius: 16px;
             box-shadow: 0 12px 28px rgba(0,0,0,.15);
+            z-index: 2; 
         }
 
         .left-poster::after{
@@ -172,10 +171,12 @@ def apply_poster_background():
             inset:0;
             border-radius:inherit;
             background: linear-gradient(90deg, rgba(255,255,255,0) 58%, rgba(255,255,255,.96) 100%);
+            z-index: 3;
         }
 
         @media (max-width: 1200px){
-            .left-poster { display:none; }
+            .left-poster, .left-poster::after { display:none; }
+            .main .block-container{ margin-left: 0 !important; }
         }
         </style>
         <div class="left-poster"></div>
@@ -206,8 +207,9 @@ def apply_cinematic_background():
     st.markdown(
         '''
         <style>
+        .stApp { background: transparent !important; }
         #bg-photo{
-            position: fixed;
+            position: fixed; 
             inset: 0;
             background-image: url('{BG_URL}');
             background-size: cover;
@@ -226,6 +228,8 @@ def apply_cinematic_background():
                         linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.03) 55%, rgba(255,255,255,0.08) 100%);
             z-index: 1;
         }
+
+        .main .block-container{ position: relative; z-index: 4; }
         </style>
 
         <div id="bg-photo"></div>
